@@ -18,14 +18,14 @@ namespace PetStoreAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Pet>>> GetAllPets()
         {
-            return _petRepository.GetAllPets();
+            return await _petRepository.GetAllPets();
         }
 
         [HttpGet]
         [Route("{id}")]
         public async Task<ActionResult<Pet>> GetSinglePet(int id)
         {
-            var result = _petRepository.GetSinglePet(id);
+            var result = await _petRepository.GetSinglePet(id);
             if (result == null)
                 return NotFound("Pet not found");
 
@@ -35,14 +35,15 @@ namespace PetStoreAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Pet>>> AddPet([FromBody] Pet pet)
         {
-            var result = _petRepository.AddPet(pet);
+            var result = await _petRepository.AddPet(pet);
+
             return Ok(result);
         }
 
         [HttpPut]
         public async Task<ActionResult<List<Pet>>> UpdatePet(int id, Pet request)
         {
-            var result = _petRepository.UpdatePet(id, request);
+            var result = await _petRepository.UpdatePet(id, request);
             if (result == null)
                 return NotFound("Pet not found");
 
@@ -52,7 +53,7 @@ namespace PetStoreAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Pet>>> DeletePet(int id)
         {
-            var result = _petRepository.DeletePet(id);
+            var result = await _petRepository.DeletePet(id);
             if (result == null)
                 return NotFound("Pet not found");
 

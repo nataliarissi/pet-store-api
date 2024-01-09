@@ -7,6 +7,6 @@
         public string TypeOfPet { get; set; } = string.Empty;
         public int Age { get; set; }
         public string Description { get; set; } = string.Empty;
-        public Address address { get; set; }
+        public Address Address { get; set; }
     }
 }

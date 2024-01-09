@@ -5,10 +5,10 @@ namespace PetStoreAPI.Repository
 {
     public interface IPetRepository
     {
-        List<Pet> GetAllPets();
-        Pet? GetSinglePet(int id);
-        List<Pet> AddPet(Pet pet);
-        List<Pet>? UpdatePet(int id, Pet request);
-        List<Pet>? DeletePet(int id);
+        Task<List<Pet>> GetAllPets();
+        Task<Pet>? GetSinglePet(int id);
+        Task<List<Pet>> AddPet(Pet pet);
+        Task<List<Pet>?> UpdatePet(int id, Pet request);
+        Task<List<Pet>?> DeletePet(int id);
     }
 }

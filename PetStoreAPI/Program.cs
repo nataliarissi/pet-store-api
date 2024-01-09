@@ -1,3 +1,4 @@
+using PetStoreAPI.Data;
 using PetStoreAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IPetRepository, PetRepository>(); 
+
+builder.Services.AddScoped<IPetRepository, PetRepository>();
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 
